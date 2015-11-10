@@ -31,4 +31,12 @@ public class PlayerController : MonoBehaviour {
 		
 		rb.AddForce (movement * speed);
 	}
+
+	//Called when this object meets a trigger.
+	//Set collectable to trigger to use.
+	void OnTriggerEnter (Collider other) {
+		if (other.gameObject.CompareTag ("Pick Up")) {
+			other.gameObject.SetActive (false);
+		}
+	}
 }
